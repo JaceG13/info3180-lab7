@@ -8,10 +8,6 @@ soup = BeautifulSoup(result.text, "html.parser")
 
 images = []
 
-print images
-
-print "\n\nAND NOW.....\n\n"
-
 # This will look for a meta tag with the og:image property
 og_image = (soup.find('meta', property='og:image') or
                     soup.find('meta', attrs={'name': 'og:image'}))
@@ -31,4 +27,4 @@ for img in soup.findAll("img", src=True):
    images.append(image % urlparse.urljoin(url, img["src"]))
    
 
-print images
+# print images
