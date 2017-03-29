@@ -17,6 +17,20 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="/static/css/app.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope, $http) {
+        
+          $http.get("/api/thumbnails")
+          .then(function(response) {
+            console.log(response.data.thumbnails);
+              $scope.thumbnails = response.data.thumbnails;
+          });
+      });
+    </script>
     {% block css %} {% endblock%}
   </head>
   <body>

@@ -27,7 +27,9 @@ def get_images():
     
     image = """<img src="%s"><br />"""
     for img in soup.findAll("img", src=True):
-       images.append(image % urlparse.urljoin(url, img["src"]))
+       images.append(img["src"])
+       
+    return (images)
        
     
     # print images

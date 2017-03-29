@@ -27,10 +27,17 @@ def home():
 def get_thumbnails():
     """Get images  in JSON format."""
     return jsonify({
-                'error': null,
+                'error': None,
                 'message': "Success",
                 'thumbnails': get_images()
             })
+            
+            
+            
+@app.route('/thumbnails/view')
+def display_thumbnails():
+    """"Display thumbnails"""
+    return render_template('thumbnails.html')
 
 
 ###
